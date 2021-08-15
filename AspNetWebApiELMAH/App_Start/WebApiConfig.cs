@@ -12,7 +12,8 @@ namespace AspNetWebApiELMAH
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
+            //config.Services.Add(typeof(IExceptionLogger), new ElmahExceptionLogger());
+            config.Filters.Add(new ElmahHandleErrorApiAttribute());
 
             // Web API routes
             config.MapHttpAttributeRoutes();
