@@ -12,13 +12,15 @@ namespace AspNetWebApiELMAH.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            throw new ArgumentException("發生例外");
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return InternalServerError();
+
         }
 
         // POST api/values
